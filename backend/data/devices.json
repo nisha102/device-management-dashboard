@@ -1,0 +1,17 @@
+[
+    {
+      "id": "1",
+      "name": "iPhone 14",
+      "status": "Active",
+      "telemetrySource": "Sensor A",
+      "lastCommunication": "2025-03-26 14:00"
+    },
+    {
+      "id": "2",
+      "name": "GoPro Hero",
+      "status": "Inactive",
+      "telemetrySource": "Camera Module",
+      "lastCommunication": "2025-03-25 18:45"
+    }
+  ]
+  
