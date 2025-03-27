@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeviceTable = ({ devices, filterStatus, setFilterStatus }) => {
+const DeviceTable = ({ devices, filterStatus, setFilterStatus, onRowClick }) => {
   const filteredDevices = devices.filter((device) =>
     filterStatus === "All" ? true : device.status === filterStatus
   );
@@ -28,7 +28,14 @@ const DeviceTable = ({ devices, filterStatus, setFilterStatus }) => {
         </thead>
         <tbody>
           {filteredDevices.map((device) => (
-            <tr key={device.id}>
+            <tr
+            key={device.id}
+            onClick={() => {
+              console.log("Clicked device:", device);
+              onRowClick(device);
+            }}
+            style={{ cursor: "pointer" }}
+          >
               <td>{device.name}</td>
               <td>{device.status}</td>
               <td>{device.telemetrySource}</td>
