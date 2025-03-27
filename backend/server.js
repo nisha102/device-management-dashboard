@@ -8,8 +8,9 @@ const PORT = 5001;
 app.use(cors());
 app.use(express.json());
 
-app.use("/devices", deviceRoutes);
+
+app.use("/", deviceRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

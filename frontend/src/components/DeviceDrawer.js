@@ -1,5 +1,24 @@
+import React, { useState } from "react";
+import { updateApn } from "../services/deviceService";
+
 const DeviceDrawer = ({ device, onClose }) => {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
   if (!device) return null;
+
+  const handleApnUpdate = async () => {
+    setLoading(true);
+    setMessage("");
+    try {
+      const response = await updateApn(device.id);
+      setMessage(response.message || "APN updated successfully!");
+    } catch (err) {
+      setMessage("Failed to update APN.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div
@@ -15,17 +34,20 @@ const DeviceDrawer = ({ device, onClose }) => {
         zIndex: 1000,
       }}
     >
-      <button onClick={onClose} style={{ float: "right" }}>
-        X
-      </button>
+      <button onClick={onClose} style={{ float: "right" }}>X</button>
       <h3>Device Details</h3>
       <p><strong>ID:</strong> {device.id}</p>
       <p><strong>Model:</strong> {device.model}</p>
       <p><strong>Data Source:</strong> {device.dataSource}</p>
 
-      <button disabled={device.status === "Inactive"}>
-        Update APN
+      <button
+        onClick={handleApnUpdate}
+        disabled={device.status === "Inactive" || loading}
+      >
+        {loading ? "Updating..." : "Update APN"}
       </button>
+
+      {message && <p style={{ marginTop: "10px" }}>{message}</p>}
     </div>
   );
 };

@@ -1,17 +1,21 @@
 [
     {
       "id": "1",
-      "name": "iPhone 14",
+      "name": "Camera 01",
       "status": "Active",
       "telemetrySource": "Sensor A",
-      "lastCommunication": "2025-03-26 14:00"
+      "lastCommunication": "2025-03-26 10:45:00",
+      "model": "Cam-X100",
+      "dataSource": "Satellite"
     },
     {
       "id": "2",
-      "name": "GoPro Hero",
+      "name": "Mobile 02",
       "status": "Inactive",
-      "telemetrySource": "Camera Module",
-      "lastCommunication": "2025-03-25 18:45"
+      "telemetrySource": "Sensor B",
+      "lastCommunication": "2025-03-25 14:20:00",
+      "model": "Mob-Y200",
+      "dataSource": "WiFi"
     }
   ]
   

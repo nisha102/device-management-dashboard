@@ -1,7 +1,7 @@
 const devices = require("../data/devices.json");
 
-const getDevices = (req, res) => {
+const getAllDevices = (req, res) => {
   res.json(devices);
 };
 
-module.exports = { getDevices };
+module.exports = { getAllDevices };
